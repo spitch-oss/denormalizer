@@ -48,8 +48,6 @@ It takes the following named arguments:
 * `--outfile`: File to which the output will be written. Defaults to `stdout`.
 * `--beam`: Beam size. Defaults to `5`.
 
-In addition, it provides the following option:
-* `--detokenize`: Detokenize output with Moses.
 
 ### 2.1 Example Usage
 
