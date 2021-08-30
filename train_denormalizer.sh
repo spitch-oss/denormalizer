@@ -47,7 +47,7 @@ force_overwrite=${force_overwrite:-false}
 
 if [ ${size} = large ]; then
   arch=transformer_normalizer
-else if [ ${size} = small ]; then
+elif [ ${size} = small ]
   arch=transformer_small
 else
   echo "Invalid architecture. Choose between 'large' and 'small'."
