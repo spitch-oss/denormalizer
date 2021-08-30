@@ -1,0 +1,15 @@
+{
+    "en":
+    {
+        "copy_chars": "abcdefghijklmnopqrstuvwxyz",
+        "symbols": "% & ° § + EUR CHF USD GBP m mm cm km m2 m3 km2 l dl ml g kg",
+        "punctuation": ",;:.?!/-()\""
+    },
+    "ru":
+    {
+        "copy_chars": "abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя",
+        "symbols": "% & ° § + EUR CHF USD GBP RUB м см км м2 м3 км2 л г кг",
+        "punctuation": ",;:.?!/-()\""
+    }
+}
+

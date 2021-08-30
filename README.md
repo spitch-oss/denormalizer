@@ -3,7 +3,7 @@
 This repository provides text denormalization models for English and Russian,
 as described in the paper
 _Benjamin Suter, Josef Novak: Neural Text Denormalization for Speech Transcripts (2021)_
-(submitted at Interspeech 2021). The models are published under a BSD 3 licence.
+(accepted at Interspeech 2021). The models are published under a BSD 3 licence.
 
 Text denormalization includes prediction of punctuation, capitalization,
 and transformation of number words into digits.
@@ -59,3 +59,36 @@ In order to denormalize a full file, use:
 
 In order to denormalize a single string, use:
 * `python denormalize.py --lang <LANG> --size <SIZE> --string <STRING>`
+
+
+## 3. Training and Evaluation
+
+### 3.1 Training
+
+A new model can be trained trained with the following command:
+```
+bash train_denormalizer.sh <DATADIR>
+```
+
+By default, this will train a large English model.
+Use the parameter `-l` to choose between the languages `en` and `ru`,
+and the parameter `-a` to choose the model architecture (`large` or `small`).
+For further options, check `bash train_denormalizer.sh -h`.
+
+The `<DATADIR>` is expected to contain the English or Russian training data
+published by [Sproat & Jaitly 2016](https://arxiv.org/abs/1611.00068)
+which can be found [here](https://github.com/rwsproat/text-normalization-data).
+
+### 3.2 Evaluation
+
+Trained models can be evaluated by running the script `python eval.py` from within
+the directory `eval`. The script takes four required arguments:
+```
+python eval.py \
+--reference <REFERENCE_FILE>
+--hypothesis <HYPOTHESIS_FILE>
+--source <SOURCE_FILE>
+--lang <LANG: {en, ru}>
+```
+
+For further options, please check `python eval.py --help`.
