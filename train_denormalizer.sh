@@ -96,7 +96,7 @@ rm ${outdir}/train.raw.full
 for l in ${src} ${tgt}; do
   for set in ${train} ${val} ${test}; do
     f=${outdir}/${set}.raw.${l}
-    bpe=${outdir}/${set}.sub.${l}
+    bpe=${outdir}/${set}.bpe.${l}
     echo "apply bpe to ${f} ..."
     subword-nmt apply-bpe -c bpe_code < ${f} > ${bpe}
   done

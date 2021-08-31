@@ -4,6 +4,7 @@
 import sys
 from re import sub
 
+import nltk
 from nltk.tokenize import word_tokenize
 from unidecode import unidecode
 

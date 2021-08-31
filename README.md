@@ -8,6 +8,8 @@ _Benjamin Suter, Josef Novak: Neural Text Denormalization for Speech Transcripts
 Text denormalization includes prediction of punctuation, capitalization,
 and transformation of number words into digits.
 
+You can find an interactive online demo [here](https://denormalizer.spitch.ch/).
+
 We provide small (`s`) and large (`l`) models for English (`en`) and Russian (`ru`).
 The large models have consistently better performance metrics, but the small models
 provide doubled inference speed at a reasonable quality (see paper for details).
@@ -30,6 +32,9 @@ pip install --editable ./
 
 Additionally, you need to install subword-nmt and moses:
 `pip install subword_nmt sacremoses`
+
+In order to train models, you need to install nltk and unidecode as well:
+`pip install nltk unidecode`
 
 
 ## 2. Usage

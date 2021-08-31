@@ -5,6 +5,7 @@ import sys
 import re
 from re import sub
 
+import nltk
 from nltk.tokenize import word_tokenize
 from unidecode import unidecode
 
@@ -69,7 +70,7 @@ def correct(text):
     text = sub(r'(?=\b\d:[0-6]\d\b)', '0', text)
     text = sub(r'(?<=\d):(?=\d)', ' : ', text)
 
-    #text = ' '.join(word_tokenize(text))
+    text = ' '.join(word_tokenize(text))
     return text
 
 
