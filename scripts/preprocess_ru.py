@@ -78,11 +78,9 @@ def transliterate(source, target):
     phoneme_groups = re.findall(r'(?:._trans ?)+', source)
     transliterations = re.findall(r'(?:[A-Za-z] ?)+', target)
     if len(phoneme_groups) == len(transliterations):
-        print(source)
         for i in range(len(phoneme_groups)):
             source = re.sub(phoneme_groups[i], transliterations[i].lower(),
                             source)
-        print(source)
     source = sub('_trans', '', source)
     source = sub(' sil ', ' ', source)
     return source, target

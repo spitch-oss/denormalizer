@@ -20,8 +20,8 @@ from fairseq.models.transformer import base_architecture
 
 import edit_distance
 
-os.sys.path.append(os.path.abspath(".."))
-from scripts import custom_arch
+os.sys.path.append(os.path.abspath("../.."))
+from denormalizer.scripts import custom_arch
 
 
 def generate_hypotheses(args):
@@ -43,20 +43,12 @@ def generate_hypotheses(args):
     total_dur = 0
     n_sents = 0
 
-    if args.sentencepiece_model:
-        DENORMALIZER = TransformerModel.from_pretrained(
-            args.checkpoint_dir,
-            checkpoint_file=args.checkpoint_file,
-            data_name_or_path=args.data_name_or_path,
-            bpe='sentencepiece', sentencepiece_model=args.sentencepiece_model,
-            beam=args.beam)
-    else:
-        DENORMALIZER = TransformerModel.from_pretrained(
-            args.checkpoint_dir,
-            checkpoint_file=args.checkpoint_file,
-            data_name_or_path=args.data_name_or_path,
-            bpe='subword_nmt', bpe_codes=args.bpe_codes,
-            beam=args.beam)
+    DENORMALIZER = TransformerModel.from_pretrained(
+        args.checkpoint_dir,
+        checkpoint_file=args.checkpoint_file,
+        data_name_or_path=args.data_name_or_path,
+        bpe='subword_nmt', bpe_codes=args.bpe_codes,
+        beam=args.beam)
 
     if args.use_gpu:
         DENORMALIZER.cuda()
@@ -204,8 +196,6 @@ def add_args(parser):
     parser.add_argument('--bpe-codes', default='../data-bin/denorm/bpe_code',
                         help='name/path of BPE file '\
                         '(default: ../data-bin/denorm/bpe_code)')
-    parser.add_argument('--sentencepiece-model',
-                        help='name/path of sentencepiece model')
     parser.add_argument('--use-gpu', action='store_true',
                         help='use GPU if available (default: False)')
     parser.add_argument('--force-overwrite', '-f', action='store_true',
